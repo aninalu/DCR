@@ -1,0 +1,12 @@
+Steps to generate sphinx documentation for the extension of DCR4Py
+1. install sphinx check the official website
+
+2. move to the docs folder:
+   cd docs
+
+3. generate all the .rst file using:
+   python -m setup
+
+4. lastly write in terminal:
+   make html
+

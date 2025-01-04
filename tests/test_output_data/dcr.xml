@@ -1,0 +1,90 @@
+<dcrgraph title="dcr graph of running-example">
+  <specification>
+    <resources>
+      <events>
+        <event id="pay compensation"/>
+        <event id="examine casually"/>
+        <event id="reinitiate request"/>
+        <event id="check ticket"/>
+        <event id="decide"/>
+        <event id="register request"/>
+        <event id="reject request"/>
+        <event id="examine thoroughly"/>
+      </events>
+      <labels>
+        <label id="pay compensation"/>
+        <label id="examine casually"/>
+        <label id="reinitiate request"/>
+        <label id="check ticket"/>
+        <label id="decide"/>
+        <label id="register request"/>
+        <label id="reject request"/>
+        <label id="examine thoroughly"/>
+      </labels>
+      <labelMappings>
+        <labelMapping eventId="pay compensation" labelId="pay compensation"/>
+        <labelMapping eventId="examine casually" labelId="examine casually"/>
+        <labelMapping eventId="reinitiate request" labelId="reinitiate request"/>
+        <labelMapping eventId="check ticket" labelId="check ticket"/>
+        <labelMapping eventId="decide" labelId="decide"/>
+        <labelMapping eventId="register request" labelId="register request"/>
+        <labelMapping eventId="reject request" labelId="reject request"/>
+        <labelMapping eventId="examine thoroughly" labelId="examine thoroughly"/>
+      </labelMappings>
+    </resources>
+    <constraints>
+      <conditions>
+        <condition sourceId="decide" targetId="pay compensation"/>
+        <condition sourceId="register request" targetId="examine casually"/>
+        <condition sourceId="decide" targetId="reinitiate request"/>
+        <condition sourceId="register request" targetId="check ticket"/>
+        <condition sourceId="examine casually" targetId="decide"/>
+        <condition sourceId="check ticket" targetId="decide"/>
+        <condition sourceId="decide" targetId="reject request"/>
+        <condition sourceId="register request" targetId="examine thoroughly"/>
+      </conditions>
+      <responses>
+        <response sourceId="examine casually" targetId="decide"/>
+        <response sourceId="reinitiate request" targetId="check ticket"/>
+        <response sourceId="check ticket" targetId="decide"/>
+        <response sourceId="register request" targetId="check ticket"/>
+        <response sourceId="examine thoroughly" targetId="decide"/>
+      </responses>
+      <excludes>
+        <exclude sourceId="pay compensation" targetId="pay compensation"/>
+        <exclude sourceId="pay compensation" targetId="examine casually"/>
+        <exclude sourceId="pay compensation" targetId="check ticket"/>
+        <exclude sourceId="pay compensation" targetId="decide"/>
+        <exclude sourceId="pay compensation" targetId="reject request"/>
+        <exclude sourceId="reinitiate request" targetId="reinitiate request"/>
+        <exclude sourceId="register request" targetId="register request"/>
+        <exclude sourceId="reject request" targetId="pay compensation"/>
+        <exclude sourceId="reject request" targetId="examine casually"/>
+        <exclude sourceId="reject request" targetId="check ticket"/>
+        <exclude sourceId="reject request" targetId="decide"/>
+        <exclude sourceId="reject request" targetId="reject request"/>
+        <exclude sourceId="examine thoroughly" targetId="examine casually"/>
+        <exclude sourceId="examine thoroughly" targetId="examine thoroughly"/>
+      </excludes>
+      <includes>
+        <include sourceId="decide" targetId="reinitiate request"/>
+      </includes>
+    </constraints>
+  </specification>
+  <runtime>
+    <marking>
+      <executed/>
+      <included>
+        <event id="pay compensation"/>
+        <event id="examine casually"/>
+        <event id="reinitiate request"/>
+        <event id="check ticket"/>
+        <event id="decide"/>
+        <event id="register request"/>
+        <event id="reject request"/>
+        <event id="examine thoroughly"/>
+      </included>
+      <pendingResponses/>
+    </marking>
+  </runtime>
+</dcrgraph>
